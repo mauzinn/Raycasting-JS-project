@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+}
+
+.main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#screen{
+    border: 1px solid black;
+}
