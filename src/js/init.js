@@ -111,12 +111,12 @@ function init() {
                         context.stroke()
                     }
 
-                    //Raycast
-                    context.beginPath()
+                    //Render rays of Raycasting
+                    /*context.beginPath()
                     context.moveTo(playerPos.X * mapData.size, playerPos.Y * mapData.size)
                     context.strokeStyle = "red"
                     context.lineTo(rayX * mapData.size, rayY * mapData.size)
-                    context.stroke()
+                    context.stroke()*/
                     break
                 }
             }
