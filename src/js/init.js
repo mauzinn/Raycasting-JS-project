@@ -103,16 +103,17 @@ function init() {
                     let wallTop = (canvasHeight - wallHeight) / 2
                     let wallRound = (canvasWidth / 2) + ((rayAngle - playerPos.angle) * (canvasWidth / (2 * viewArea)));
 
+                    //Draw wall
                     context.beginPath()
-                    for(let index = 0; index < 15; index++) {
-                        context.strokeStyle = `rgba(${255 - distance * 25}, 0, 0, 1)`
-                        context.moveTo(wallRound + index, wallTop)
-                        context.lineTo(wallRound + index, wallTop + wallHeight)
-                        context.stroke()
-                    }
+                    context.strokeStyle = `rgba(${255 - distance * 25}, 0, 0, 1)`
+                    context.lineWidth = mapData.size / 2.4
+                    context.moveTo(wallRound, wallTop)
+                    context.lineTo(wallRound, wallTop + wallHeight)
+                    context.stroke()
 
                     //Render rays of Raycasting
                     /*context.beginPath()
+                    context.lineWidth = 1
                     context.moveTo(playerPos.X * mapData.size, playerPos.Y * mapData.size)
                     context.strokeStyle = "red"
                     context.lineTo(rayX * mapData.size, rayY * mapData.size)
@@ -173,12 +174,19 @@ function init() {
         }
     })
 
+    function Floor() {
+        context.beginPath()
+        context.fillStyle = "#303030"
+        context.fillRect(0, 0, canvasWidth, canvasHeight / 2)        
+        
+        context.beginPath()
+        context.fillStyle = "#666666"
+        context.fillRect(0, canvasHeight / 2, canvasWidth, canvasHeight / 2)
+    }
+
     function Load() {
         requestAnimationFrame(Load)
-        context.beginPath()
-        context.fillStyle = "Black"
-        context.fillRect(0, 0, canvasWidth, canvasHeight)
-
+        Floor()
         
         castRays()
         loadFPS()
